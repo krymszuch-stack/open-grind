@@ -1,4 +1,4 @@
-pub mod api;
+﻿pub mod api;
 mod appearance;
 mod error;
 pub mod media;
@@ -208,10 +208,6 @@ pub fn run() {
                     .show(|_| {});
             }
 
-            #[cfg(any(
-                target_os = "linux",
-                all(target_os = "macos", not(feature = "keychain"))
-            ))]
             storage::init_file_store(app.path().app_data_dir()?);
 
             storage::init_keyring();
